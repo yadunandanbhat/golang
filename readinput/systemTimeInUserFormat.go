@@ -21,36 +21,36 @@ func main() {
 	fmt.Println("11. 04/10 06:54:28PM '22 +0700")
 	fmt.Println("12. 6:54PM")
 	fmt.Println("Please input the number of any standard time format you want the current time in: ")
-	var format int
+	var format string
 	currentTime := time.Now()
 	n, err := fmt.Scanln(&format)
 	if err != nil || n <= 0 {
 		log.Fatal(err)
 	}
 	switch format {
-	case 1:
+	case "1":
 		fmt.Println(currentTime.Format(time.ANSIC))
-	case 2:
+	case "2":
 		fmt.Println(currentTime.Format(time.UnixDate))
-	case 3:
+	case "3":
 		fmt.Println(currentTime.Format(time.RubyDate))
-	case 4:
+	case "4":
 		fmt.Println(currentTime.Format(time.RFC822))
-	case 5:
+	case "5":
 		fmt.Println(currentTime.Format(time.RFC822Z))
-	case 6:
+	case "6":
 		fmt.Println(currentTime.Format(time.RFC850))
-	case 7:
+	case "7":
 		fmt.Println(currentTime.Format(time.RFC1123))
-	case 8:
+	case "8":
 		fmt.Println(currentTime.Format(time.RFC1123Z))
-	case 9:
+	case "9":
 		fmt.Println(currentTime.Format(time.RFC3339))
-	case 10:
+	case "10":
 		fmt.Println(currentTime.Format(time.RFC3339Nano))
-	case 11:
+	case "11":
 		fmt.Println(currentTime.Format(time.Layout))
-	case 12:
+	case "12":
 		fmt.Println(currentTime.Format(time.Kitchen))
 	default:
 		fmt.Println("You entered a wrong option, so the default output is " + currentTime.Format(time.ANSIC))
