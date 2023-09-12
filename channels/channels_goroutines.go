@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"log"
+)
 
 func fibonacci(max int, channel chan int) {
 	fibo := make([]int, max)
@@ -24,7 +27,10 @@ func main() {
 
 	fmt.Println("----- Fibonacci sequence printing by using channels and goroutines -----")
 	fmt.Println("Enter the number till which you want the sequence to be printed: ")
-	fmt.Scanln(&max)
+	n, err := fmt.Scanln(&max)
+	if err != nil || n <= 0 {
+		log.Fatal("Error while reading input from the user !")
+	}
 
 	channel := make(chan int)
 	go fibonacci(max, channel)
