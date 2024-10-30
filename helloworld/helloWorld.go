@@ -1,13 +1,9 @@
 package main
 
-import (
-	"fmt"
-)
-
-func Hello() string {
-	return "Hello, world!"
-}
-
-func main() {
-	fmt.Println(Hello())
+func Hello(name string) string {
+	message := "Hello, "
+	if name == "" {
+		return message + "world"
+	}
+	return message + name
 }
